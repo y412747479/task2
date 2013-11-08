@@ -99,19 +99,30 @@ struct Student printflianbiao(struct Student *ptf)//节点的输出
 }
 int main()
 {
+    int i,a,b,c,d,e;
     struct Student *pt;
     pt=creat();//节点的建立
     printf("最初的链表\n");
     printflianbiao(pt);
-    insertlianbiao(pt,2,102,60);//节点的插入
-    printf("插入到第二行\n");
+    printf("请输入你希望在第几行插入数据：\n");
+    scanf("%d",&i);
+    printf("请输入你插入学生的学号与成绩以逗号隔开：\n");
+    scanf("%d,%d",&a,&b);
+    insertlianbiao(pt,i,a,b);//节点的插入
+    printf("插入后的链表\n");
     printflianbiao(pt);
-    delete2(pt,2);//节点的删除
-    printf("删除第二行节点\n");
+    printf("请输入你要删除第几个学生数据：\n");
+    scanf("%d",&c);
+    delete2(pt,c);//节点的删除
+    printf("删除第%d行节点后：\n",c);
     printflianbiao(pt);
-    findlianbiao(pt,50);//链表的查找，是否有x
-    delete1(pt,50);//单链表的删除，在链表中删除值为x的元素
-    printf("删除含score=50的节点\n");
+    printf("请输入你要查找的学生成绩：\n");
+    scanf("%d",&d);
+    findlianbiao(pt,d);//链表的查找，是否有x
+    printf("请输入你要删除的学生的成绩：\n");
+    scanf("%d",&e);
+    delete1(pt,e);//单链表的删除，在链表中删除值为x的元素
+    printf("删除含score=%d的节点\n",e);
     printflianbiao(pt);
     return 0;
 }
